@@ -1,7 +1,7 @@
-## SIDAM OpenID Connect Demos
+## IDAM OpenID Connect Demos
 
 This project aims to provide some basic examples of OpenID
-Connect implementations for use with the SIDAM system.
+Connect implementations for use with the IDAM system.
 
 Demo 1
 ---
@@ -65,7 +65,7 @@ We add some extra validators for the bits we care about:
   client_id `ccd` then the approved audience list of `ccd` 
   should contain `ccd-admin`.
  * Timestamp Validator to check for expired tokens.
- * Issuer Validator to confirm issuer is SIDAM, and at the time
+ * Issuer Validator to confirm issuer is IDAM, and at the time
  of writing the issuer is reporting as ForgerockAM instead of 
  hmcts-access so you will need to override this value until
  that has been fixed.
@@ -86,7 +86,7 @@ authorities (aka. the Spring Authorisation Roles).
 
 If our token is the `access_token` we call `/userinfo` endpoint
 to get the roles. This part can be cached on token to reduce calls 
-to SIDAM. The Jwt Validators run before this step so its safe to 
+to IDAM. The Jwt Validators run before this step so its safe to 
 cache the return from `getUserInfo()` as only valid tokens will reach
 this point.
 
