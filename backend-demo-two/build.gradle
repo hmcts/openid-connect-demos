@@ -1,0 +1,60 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'io.spring.gradle:dependency-management-plugin:1.0.8.RELEASE'
+    }
+}
+
+plugins {
+    id 'org.springframework.boot' version '2.2.2.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.8.RELEASE'
+    id 'java'
+}
+
+group = 'uk.gov.hmcts.reform.idam.oidc'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+    jcenter()
+    mavenCentral()
+}
+
+dependencies {
+    implementation group: 'io.springfox', name: 'springfox-swagger-ui', version: '2.9.2'
+    implementation group: 'io.springfox', name: 'springfox-swagger2',  version: '2.9.2'
+    implementation group: 'io.springfox', name: 'springfox-bean-validators',  version: '2.9.2'
+
+    implementation("org.springframework.boot:spring-boot-starter-web") {
+        exclude module: "spring-boot-starter-tomcat"
+    }
+    implementation "org.springframework.boot:spring-boot-starter-undertow"
+    implementation "org.springframework.security:spring-security-web"
+    implementation "org.springframework.security:spring-security-data"
+    implementation "org.springframework.security:spring-security-config"
+    implementation "org.springframework.boot:spring-boot-starter-oauth2-client"
+    implementation "org.springframework.boot:spring-boot-starter-oauth2-resource-server"
+    implementation "org.springframework.cloud:spring-cloud-starter-openfeign:2.2.0.RELEASE"
+    implementation "org.springframework.boot:spring-boot-starter-webflux"
+    implementation group: 'com.squareup.okhttp3', name: 'okhttp', version: '3.14.2'
+    implementation "io.github.openfeign:feign-okhttp:10.7.0"
+    implementation "io.github.openfeign:feign-httpclient:10.7.0"
+    implementation "io.github.openfeign:feign-jackson:10.7.0"
+
+    compileOnly group: 'org.projectlombok', name: 'lombok'
+    testCompileOnly group: 'org.projectlombok', name: 'lombok'
+    annotationProcessor group: 'org.projectlombok', name: 'lombok'
+    testAnnotationProcessor group: 'org.projectlombok', name: 'lombok'
+
+    annotationProcessor "org.springframework.boot:spring-boot-configuration-processor"
+
+    testImplementation('org.springframework.boot:spring-boot-starter-test') {
+        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+    }
+}
+
+test {
+    useJUnitPlatform()
+}

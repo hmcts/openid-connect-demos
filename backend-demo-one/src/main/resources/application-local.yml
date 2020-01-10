@@ -1,0 +1,11 @@
+spring:
+  security:
+    oauth2:
+      client:
+        provider:
+          oidc:
+            issuer-uri: http://localhost:5000/o
+
+# Allowed audience list
+oidc:
+  issuer: http://localhost:8080/openam/oauth2/hmcts

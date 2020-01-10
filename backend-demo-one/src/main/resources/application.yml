@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: backend-demo-one
+  main:
+    allow-bean-definition-overriding: true
+  security:
+    oauth2:
+      client:
+        provider:
+          oidc:
+            issuer-uri: https://idam-web-public.aat.platform.hmcts.net/o
+        registration:
+          oidc:
+            client-id: internal
+            client-secret: internal
+
+# Allowed audience list
+oidc:
+  audience-list: ccd-admin,hmcts
+  issuer: https://forgerock-am.service.core-compute-idam-aat.internal:8443/openam/oauth2/hmcts
+
+server:
+  port: 5080
+
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 5000
+        readTimeout: 5000
+        loggerLevel: basic
