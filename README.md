@@ -10,6 +10,9 @@ Demo 1 is the most basic version of the implementation that
 supports authentication using `access_token` and `id_token`
 as `Authentication: Bearer` tokens.
 
+This is for a Backend Api that wants to make use of RBAC and
+not just simple oauth2 authentication.
+
 #### Getting Started
 To run the demo project you will need to update some values
 in `application.yaml`
